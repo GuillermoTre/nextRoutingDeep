@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DUMMY_NEWS } from "@/dummy-news";
 
@@ -15,7 +16,9 @@ export default function NewsDetailPage({params}){
     return (
         <article className="news-article">
             <header>
-                <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} width={200} height={200} />
+                <Link href={`/news/${newsItem.slug}/image`}>
+                    <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} width={200} height={200} />
+                </Link>
                 <h1>{newsItem.title}</h1>
                 <time>{newsItem.date}</time>
             </header>
